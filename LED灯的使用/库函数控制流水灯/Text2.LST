@@ -1,0 +1,51 @@
+C51 COMPILER V8.06   TEXT2                                                                 11/11/2022 15:24:22 PAGE 1   
+
+
+C51 COMPILER V8.06, COMPILATION OF MODULE TEXT2
+OBJECT MODULE PLACED IN Text2.OBJ
+COMPILER INVOKED BY: D:\单片机\C51\BIN\C51.EXE Text2.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #include<intrins.h> 
+   3          #define LED_PROT        P2 //宏定义P2端口
+   4          typedef  unsigned char u8;
+   5          typedef unsigned int u16;
+   6          //延时函数 
+   7          void Keep(u16 ten){
+   8   1              while(ten--);
+   9   1      }
+  10          main(){
+  11   1              u8 i=0;
+  12   1              LED_PROT=0xfe;//最低位为0，其余为1  0xfe:1111 1110 
+  13   1              Keep(20000);
+  14   1              while(1)
+  15   1              {
+  16   2                       for(i=0;i<7;i++)
+  17   2                       {
+  18   3                              LED_PROT=_crol_(LED_PROT,1);
+  19   3                              Keep(20000);
+  20   3                       }
+  21   2                       Keep(20000);
+  22   2                       for(i=0;i<7;i++)
+  23   2                       {
+  24   3                              LED_PROT=_cror_(LED_PROT,1);
+  25   3                              Keep(20000);
+  26   3                       }
+  27   2              }
+  28   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     73    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

@@ -1,0 +1,39 @@
+C51 COMPILER V8.06   TEXT1                                                                 11/11/2022 14:43:50 PAGE 1   
+
+
+C51 COMPILER V8.06, COMPILATION OF MODULE TEXT1
+OBJECT MODULE PLACED IN Text1.OBJ
+COMPILER INVOKED BY: D:\µ¥Æ¬»ú\C51\BIN\C51.EXE Text1.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          sbit LED1=P2^0;
+   3          typedef  unsigned char u8;
+   4          typedef unsigned int u16;
+   5          
+   6          void Keep(u16 ten){
+   7   1              while(ten--);
+   8   1      }
+   9          main(){
+  10   1              while(1){
+  11   2                      LED1=0;
+  12   2                      Keep(20000);
+  13   2                      LED1=1;
+  14   2                      Keep(20000);
+  15   2              }
+  16   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     31    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
