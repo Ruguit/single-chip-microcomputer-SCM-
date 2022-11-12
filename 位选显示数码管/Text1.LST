@@ -1,0 +1,66 @@
+C51 COMPILER V8.06   TEXT1                                                                 11/12/2022 18:39:53 PAGE 1   
+
+
+C51 COMPILER V8.06, COMPILATION OF MODULE TEXT1
+OBJECT MODULE PLACED IN Text1.OBJ
+COMPILER INVOKED BY: D:\单片机\C51\BIN\C51.EXE Text1.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          #define SMG_A_DP_PORT P0
+   3          
+   4          typedef unsigned char u8;
+   5          typedef unsigned int u16; 
+   6          //定义位选
+   7          sbit LSA=P2^2;
+   8          sbit LSB=P2^3;
+   9          sbit LSC=P2^4; 
+  10          
+  11          //共阴极数码管显示0~7的段码数据
+  12          u8 gsmg_code[8]={0x3f,0x06,0x5b,0x4f,0x66,0x6d,0x7d,0x07,};
+  13                                          
+  14          //延时函数                              
+  15          void delay(u16 ten){
+  16   1              while(ten--);
+  17   1      }
+  18          //位选函数+动态显示数字 
+  19          void smg_display(i)
+  20          {
+  21   1                      switch(i)//位选
+  22   1                      {
+  23   2                              case 0: LSC=1;LSB=1;LSA=1;break;
+  24   2                              case 1: LSC=1;LSB=1;LSA=0;break;
+  25   2                              case 2: LSC=1;LSB=0;LSA=1;break;
+  26   2                              case 3: LSC=1;LSB=0;LSA=0;break;
+  27   2                              case 4: LSC=0;LSB=1;LSA=1;break;
+  28   2                              case 5: LSC=0;LSB=1;LSA=0;break;
+  29   2                              case 6: LSC=0;LSB=0;LSA=1;break;
+  30   2                              case 7: LSC=0;LSB=0;LSA=0;break;
+  31   2                      }
+  32   1                      SMG_A_DP_PORT=gsmg_code[i];//传送段选数据
+  33   1      }               
+  34          main(){
+  35   1              while(1){
+  36   2                      u8 i=0;
+  37   2                      for(i=0;i<8;i++)
+  38   2                      {
+  39   3                       smg_display(i); 
+  40   3                      delay(100);//延时一段时间，等待显示稳定
+  41   3                      }
+  42   2              }               
+  43   1      } 
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    133    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      8       1
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
