@@ -1,0 +1,148 @@
+BL51 BANKED LINKER/LOCATER V6.05                                                        11/12/2022  22:45:26  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.05, INVOKED BY:
+D:\单片机\C51\BIN\BL51.EXE Text1.obj TO 独立按键 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  Text1.obj (TEXT1)
+  D:\单片机\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\单片机\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  独立按键 (TEXT1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0002H     UNIT         ?DT?TEXT1
+            IDATA   000AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     005EH     UNIT         ?PR?_KEY_SCAN?TEXT1
+            CODE    08EAH     001BH     UNIT         ?PR?MAIN?TEXT1
+            CODE    0905H     000BH     UNIT         ?PR?_DELAY_US?TEXT1
+            CODE    0910H     0005H     UNIT         ?C_INITSEG
+
+
+
+OVERLAY MAP OF MODULE:   独立按键 (TEXT1)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?TEXT1
+  +--> ?C_INITSEG
+
+?PR?MAIN?TEXT1
+  +--> ?PR?_KEY_SCAN?TEXT1
+
+?PR?_KEY_SCAN?TEXT1
+  +--> ?PR?_DELAY_US?TEXT1
+
+
+
+SYMBOL TABLE OF MODULE:  独立按键 (TEXT1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+BL51 BANKED LINKER/LOCATER V6.05                                                      11/12/2022  22:45:26  PAGE 2
+
+
+  -------         MODULE        TEXT1
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  B:00B0H.3       PUBLIC        K4
+  D:0090H         PUBLIC        P1
+  D:00A0H         PUBLIC        P2
+  D:00B0H         PUBLIC        P3
+  B:00A0H.0       PUBLIC        LED1
+  B:00A0H.1       PUBLIC        LED2
+  B:00A0H.2       PUBLIC        LED3
+  B:00A0H.3       PUBLIC        LED4
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:08EAH         PUBLIC        main
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:088CH         PUBLIC        _key_scan
+  C:0905H         PUBLIC        _delay_us
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  B:00B0H.1       PUBLIC        K1
+  B:00B0H.0       PUBLIC        K2
+  B:00B0H.2       PUBLIC        K3
+  -------         PROC          _DELAY_US
+  D:0006H         SYMBOL        ten_us
+  C:0905H         LINE#         20
+  C:0905H         LINE#         21
+  C:090FH         LINE#         22
+  -------         ENDPROC       _DELAY_US
+  -------         PROC          _KEY_SCAN
+  D:0007H         SYMBOL        mode
+  -------         DO            
+  D:0008H         SYMBOL        key
+  -------         ENDDO         
+  C:088CH         LINE#         24
+  C:088CH         LINE#         26
+  C:0895H         LINE#         27
+  C:08A9H         LINE#         28
+  C:08B0H         LINE#         29
+  C:08B5H         LINE#         30
+  C:08B8H         LINE#         31
+  C:08BCH         LINE#         32
+  C:08BFH         LINE#         33
+  C:08C4H         LINE#         34
+  C:08C7H         LINE#         35
+  C:08CCH         LINE#         36
+  C:08CFH         LINE#         37
+  C:08D4H         LINE#         38
+  C:08E0H         LINE#         39
+  C:08E0H         LINE#         40
+  C:08E6H         LINE#         41
+  C:08E6H         LINE#         42
+  C:08E9H         LINE#         43
+  C:08E9H         LINE#         44
+  -------         ENDPROC       _KEY_SCAN
+  -------         PROC          MAIN
+  -------         DO            
+  D:0007H         SYMBOL        key
+BL51 BANKED LINKER/LOCATER V6.05                                                      11/12/2022  22:45:26  PAGE 3
+
+
+  -------         ENDDO         
+  C:08EAH         LINE#         46
+  C:08EAH         LINE#         47
+  C:08EAH         LINE#         48
+  C:08EAH         LINE#         49
+  C:08EFH         LINE#         50
+  C:08F2H         LINE#         51
+  C:08F4H         LINE#         52
+  C:08F7H         LINE#         53
+  C:08F9H         LINE#         54
+  C:08FCH         LINE#         55
+  C:08FEH         LINE#         56
+  C:0901H         LINE#         57
+  C:0903H         LINE#         58
+  C:0903H         LINE#         59
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TEXT1
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0088H BYTE ( 6%) *
+******************************************************************************
+
+Program Size: data=11.0 xdata=0 code=280
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)

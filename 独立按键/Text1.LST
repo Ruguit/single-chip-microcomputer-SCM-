@@ -1,0 +1,85 @@
+C51 COMPILER V8.06   TEXT1                                                                 11/12/2022 22:45:25 PAGE 1   
+
+
+C51 COMPILER V8.06, COMPILATION OF MODULE TEXT1
+OBJECT MODULE PLACED IN Text1.OBJ
+COMPILER INVOKED BY: D:\单片机\C51\BIN\C51.EXE Text1.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          //通过判断相对应的引脚是否为0来使用  独立按键一般接GND 导通时产生低电平。
+   3          sbit K1=P3^1;
+   4          sbit K2=P3^0;
+   5          sbit K3=P3^2;
+   6          sbit K4=P3^3;
+   7          
+   8          sbit LED1=P2^0;
+   9          sbit LED2=P2^1; 
+  10          sbit LED3=P2^2; 
+  11          sbit LED4=P2^3;  
+  12          
+  13          #define K1_PRESS 1
+  14          #define K2_PRESS 2
+  15          #define K3_PRESS 3
+  16          #define K4_PRESS 4
+  17          #define K_NOPRESS 0
+  18          
+  19          //延时函数
+  20          void delay_us(unsigned int ten_us){
+  21   1              while(ten_us--);
+  22   1      }
+  23          
+  24          unsigned int key_scan(unsigned char mode){
+  25   1              static key=1;
+  26   1              if(mode)key=1;
+  27   1              if(key==1&&(K1==0||K2==0||K3==0||K4==0)){//有按键按下 
+  28   2                      delay_us(10000);//消抖的处理
+  29   2                      key=0; 
+  30   2                      if(K1==0)
+  31   2                              return K1_PRESS;
+  32   2                      else if(K2==0)
+  33   2                              return K2_PRESS;
+  34   2                      else if(K3==0)
+  35   2                              return K3_PRESS;
+  36   2                      else if(K4==0)
+  37   2                              return K4_PRESS;
+  38   2              }else if(K1==1&&K2==1&&K3==1&&K4==1){//无按键按下
+  39   2                      {
+  40   3                              key=1;
+  41   3                      }
+  42   2                      return K_NOPRESS;        //保持
+  43   2              }   
+  44   1      }
+  45          
+  46          main(){
+  47   1              unsigned char key=0;
+  48   1              while(1){
+  49   2                      key=key_scan(0);
+  50   2                      if(key==K1_PRESS){
+  51   3                              LED1=~LED1; 
+  52   3                      }if(key==K2_PRESS){
+  53   3                              LED2=~LED2; 
+  54   3                      }if(key==K3_PRESS){
+  55   3                              LED3=~LED3; 
+C51 COMPILER V8.06   TEXT1                                                                 11/12/2022 22:45:25 PAGE 2   
+
+  56   3                      }if(key==K4_PRESS){
+  57   3                              LED4=~LED4; 
+  58   3                      } 
+  59   2              } 
+  60   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    132    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      2    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
