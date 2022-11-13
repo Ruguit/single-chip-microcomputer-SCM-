@@ -1,0 +1,145 @@
+BL51 BANKED LINKER/LOCATER V6.05                                                        11/13/2022  23:49:47  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.05, INVOKED BY:
+D:\单片机\C51\BIN\BL51.EXE Text1.obj TO 线翻转 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  Text1.obj (TEXT1)
+  D:\单片机\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\单片机\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  线翻转 (TEXT1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0012H     UNIT         ?DT?TEXT1
+            IDATA   001AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     008CH     UNIT         ?C_C51STARTUP
+            CODE    088CH     0074H     UNIT         ?PR?KEY_MATRIX_FLIP_SCAN?TEXT1
+            CODE    0900H     0017H     UNIT         ?C_INITSEG
+            CODE    0917H     0010H     UNIT         ?PR?MAIN?TEXT1
+            CODE    0927H     000BH     UNIT         ?PR?_DELAY_10US?TEXT1
+
+
+
+OVERLAY MAP OF MODULE:   线翻转 (TEXT1)
+
+
+SEGMENT
+  +--> CALLED SEGMENT
+---------------------
+?C_C51STARTUP
+  +--> ?PR?MAIN?TEXT1
+  +--> ?C_INITSEG
+
+?PR?MAIN?TEXT1
+  +--> ?PR?KEY_MATRIX_FLIP_SCAN?TEXT1
+
+?PR?KEY_MATRIX_FLIP_SCAN?TEXT1
+  +--> ?PR?_DELAY_10US?TEXT1
+
+
+
+SYMBOL TABLE OF MODULE:  线翻转 (TEXT1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+
+BL51 BANKED LINKER/LOCATER V6.05                                                      11/13/2022  23:49:47  PAGE 2
+
+
+  -------         MODULE        TEXT1
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:0917H         PUBLIC        main
+  D:0009H         PUBLIC        gsmg_code
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0927H         PUBLIC        _delay_10us
+  C:088CH         PUBLIC        key_matrix_flip_scan
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  -------         PROC          _DELAY_10US
+  D:0006H         SYMBOL        ten_us
+  C:0927H         LINE#         15
+  C:0927H         LINE#         16
+  C:0931H         LINE#         17
+  C:0931H         LINE#         18
+  -------         ENDPROC       _DELAY_10US
+  -------         PROC          KEY_MATRIX_FLIP_SCAN
+  -------         DO            
+  D:0008H         SYMBOL        key_value
+  -------         ENDDO         
+  C:088CH         LINE#         27
+  C:088CH         LINE#         28
+  C:088CH         LINE#         31
+  C:088FH         LINE#         32
+  C:0895H         LINE#         33
+  C:0895H         LINE#         34
+  C:089CH         LINE#         35
+  C:08A2H         LINE#         36
+  C:08A2H         LINE#         38
+  C:08A5H         LINE#         39
+  C:08B7H         LINE#         40
+  C:08B7H         LINE#         41
+  C:08BCH         LINE#         42
+  C:08C1H         LINE#         43
+  C:08C6H         LINE#         44
+  C:08C9H         LINE#         45
+  C:08C9H         LINE#         47
+  C:08CCH         LINE#         48
+  C:08DFH         LINE#         49
+  C:08DFH         LINE#         50
+  C:08E4H         LINE#         51
+  C:08E8H         LINE#         52
+  C:08ECH         LINE#         53
+  C:08F2H         LINE#         54
+  C:08F2H         LINE#         55
+  C:08FAH         LINE#         56
+  C:08FAH         LINE#         57
+  C:08FAH         LINE#         59
+  C:08FDH         LINE#         61
+  C:08FFH         LINE#         62
+  -------         ENDPROC       KEY_MATRIX_FLIP_SCAN
+BL51 BANKED LINKER/LOCATER V6.05                                                      11/13/2022  23:49:47  PAGE 3
+
+
+  -------         PROC          MAIN
+  -------         DO            
+  D:0007H         SYMBOL        key
+  -------         ENDDO         
+  C:0917H         LINE#         64
+  C:0917H         LINE#         65
+  C:0919H         LINE#         66
+  C:0919H         LINE#         67
+  C:091CH         LINE#         68
+  C:091FH         LINE#         69
+  C:0925H         LINE#         70
+  C:0925H         LINE#         71
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TEXT1
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 00A5H BYTE ( 8%) *
+******************************************************************************
+
+Program Size: data=27.0 xdata=0 code=309
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
