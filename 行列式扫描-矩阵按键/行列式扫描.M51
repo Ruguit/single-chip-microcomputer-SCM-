@@ -1,0 +1,168 @@
+BL51 BANKED LINKER/LOCATER V6.05                                                        11/13/2022  23:25:42  PAGE 1
+
+
+BL51 BANKED LINKER/LOCATER V6.05, INVOKED BY:
+D:\单片机\C51\BIN\BL51.EXE Text1.obj TO 行列式扫描 RAMSIZE (256)
+
+
+MEMORY MODEL: SMALL
+
+
+INPUT MODULES INCLUDED:
+  Text1.obj (TEXT1)
+  D:\单片机\C51\LIB\C51S.LIB (?C_STARTUP)
+  D:\单片机\C51\LIB\C51S.LIB (?C_INIT)
+
+
+LINK MAP OF MODULE:  行列式扫描 (TEXT1)
+
+
+            TYPE    BASE      LENGTH    RELOCATION   SEGMENT NAME
+            -----------------------------------------------------
+
+            * * * * * * *   D A T A   M E M O R Y   * * * * * * *
+            REG     0000H     0008H     ABSOLUTE     "REG BANK 0"
+            DATA    0008H     0011H     UNIT         ?DT?TEXT1
+            DATA    0019H     0001H     UNIT         _DATA_GROUP_
+            IDATA   001AH     0001H     UNIT         ?STACK
+
+            * * * * * * *   C O D E   M E M O R Y   * * * * * * *
+            CODE    0000H     0003H     ABSOLUTE     
+                    0003H     07FDH                  *** GAP ***
+            CODE    0800H     00DEH     UNIT         ?PR?KEY_MATRIX_RANKS_SCAN?TEXT1
+            CODE    08DEH     008CH     UNIT         ?C_C51STARTUP
+            CODE    096AH     0014H     UNIT         ?C_INITSEG
+            CODE    097EH     0010H     UNIT         ?PR?MAIN?TEXT1
+            CODE    098EH     000FH     UNIT         ?PR?_DELAY_US?TEXT1
+
+
+
+OVERLAY MAP OF MODULE:   行列式扫描 (TEXT1)
+
+
+SEGMENT                                   DATA_GROUP 
+  +--> CALLED SEGMENT                   START    LENGTH
+-------------------------------------------------------
+?C_C51STARTUP                           -----    -----
+  +--> ?PR?MAIN?TEXT1
+  +--> ?C_INITSEG
+
+?PR?MAIN?TEXT1                          -----    -----
+  +--> ?PR?KEY_MATRIX_RANKS_SCAN?TEXT1
+
+?PR?KEY_MATRIX_RANKS_SCAN?TEXT1         0019H    0001H
+  +--> ?PR?_DELAY_US?TEXT1
+
+
+
+SYMBOL TABLE OF MODULE:  行列式扫描 (TEXT1)
+
+  VALUE           TYPE          NAME
+  ----------------------------------
+BL51 BANKED LINKER/LOCATER V6.05                                                      11/13/2022  23:25:42  PAGE 2
+
+
+
+  -------         MODULE        TEXT1
+  C:0000H         SYMBOL        _ICE_DUMMY_
+  D:0080H         PUBLIC        P0
+  D:0090H         PUBLIC        P1
+  D:00B0H         PUBLIC        P3
+  D:00A8H         PUBLIC        IE
+  D:00B8H         PUBLIC        IP
+  C:097EH         PUBLIC        main
+  D:0008H         PUBLIC        gsmg_code
+  D:0098H         PUBLIC        SCON
+  D:0088H         PUBLIC        TCON
+  C:0800H         PUBLIC        key_matrix_ranks_scan
+  C:0992H         PUBLIC        _delay_us
+  D:00C8H         PUBLIC        T2CON
+  D:00D0H         PUBLIC        PSW
+  C:098EH         SYMBOL        L?0043
+  -------         PROC          L?0042
+  -------         ENDPROC       L?0042
+  C:098EH         SYMBOL        L?0043
+  -------         PROC          _DELAY_US
+  D:0006H         SYMBOL        ten_us
+  C:0992H         LINE#         15
+  C:0992H         LINE#         16
+  C:099CH         LINE#         17
+  C:099CH         LINE#         18
+  -------         ENDPROC       _DELAY_US
+  -------         PROC          KEY_MATRIX_RANKS_SCAN
+  -------         DO            
+  D:0019H         SYMBOL        key_value
+  -------         ENDDO         
+  C:0800H         LINE#         21
+  C:0800H         LINE#         22
+  C:0803H         LINE#         25
+  C:0806H         LINE#         26
+  C:080CH         LINE#         27
+  C:080FH         LINE#         28
+  C:0822H         LINE#         29
+  C:0827H         LINE#         30
+  C:082CH         LINE#         31
+  C:0831H         LINE#         32
+  C:0834H         LINE#         33
+  C:0834H         LINE#         34
+  C:0834H         LINE#         35
+  C:0839H         LINE#         38
+  C:083CH         LINE#         39
+  C:0842H         LINE#         40
+  C:0845H         LINE#         41
+  C:0858H         LINE#         42
+  C:085DH         LINE#         43
+  C:0862H         LINE#         44
+  C:0867H         LINE#         45
+  C:086AH         LINE#         46
+  C:086AH         LINE#         47
+  C:086AH         LINE#         48
+  C:086FH         LINE#         51
+  C:0872H         LINE#         52
+BL51 BANKED LINKER/LOCATER V6.05                                                      11/13/2022  23:25:42  PAGE 3
+
+
+  C:0878H         LINE#         53
+  C:087BH         LINE#         54
+  C:088EH         LINE#         55
+  C:0893H         LINE#         56
+  C:0898H         LINE#         57
+  C:089DH         LINE#         58
+  C:08A0H         LINE#         59
+  C:08A0H         LINE#         60
+  C:08A0H         LINE#         61
+  C:08A5H         LINE#         64
+  C:08A8H         LINE#         65
+  C:08AEH         LINE#         66
+  C:08B1H         LINE#         67
+  C:08C4H         LINE#         68
+  C:08C9H         LINE#         69
+  C:08CEH         LINE#         70
+  C:08D3H         LINE#         71
+  C:08D6H         LINE#         72
+  C:08D6H         LINE#         73
+  C:08D6H         LINE#         74
+  C:08DBH         LINE#         76
+  C:08DDH         LINE#         77
+  -------         ENDPROC       KEY_MATRIX_RANKS_SCAN
+  -------         PROC          MAIN
+  -------         DO            
+  D:0007H         SYMBOL        key
+  -------         ENDDO         
+  C:097EH         LINE#         79
+  C:097EH         LINE#         80
+  C:0980H         LINE#         81
+  C:0980H         LINE#         82
+  C:0983H         LINE#         83
+  C:0986H         LINE#         84
+  C:098CH         LINE#         85
+  C:098CH         LINE#         86
+  -------         ENDPROC       MAIN
+  -------         ENDMOD        TEXT1
+
+******************************************************************************
+* RESTRICTED VERSION WITH 0800H BYTE CODE SIZE LIMIT; USED: 0110H BYTE (13%) *
+******************************************************************************
+
+Program Size: data=27.0 xdata=0 code=416
+LINK/LOCATE RUN COMPLETE.  0 WARNING(S),  0 ERROR(S)
