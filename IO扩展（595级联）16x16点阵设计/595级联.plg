@@ -1,0 +1,26 @@
+<html>
+<body>
+<pre>
+<h1>礦ision3 Build Log</h1>
+<h2>Project:</h2>
+D:\单片机\CODE\IO扩展（595级联）16x16点阵设计\595级联.uv2
+Project File Date:  11/19/2022
+
+<h2>Output:</h2>
+编译 Text2.c ...
+TEXT2.C(31): 错误 C202: 'SECLK': undefined identifier
+TEXT2.C(33): 错误 C202: 'SECLK': undefined identifier
+TEXT2.C(39): 错误 C202: 'SECLK': undefined identifier
+TEXT2.C(41): 错误 C202: 'SECLK': undefined identifier
+TEXT2.C(47): 错误 C202: 'SECLK': undefined identifier
+TEXT2.C(49): 错误 C202: 'SECLK': undefined identifier
+TEXT2.C(55): 错误 C202: 'SECLK': undefined identifier
+TEXT2.C(57): 错误 C202: 'SECLK': undefined identifier
+Text2.c - 8 个错误, 0 个警告。
+编译 Text2.c ...
+Text2.c - 0 个错误, 0 个警告。
+创建目标 '目标 1'
+连接 ...
+Program Size: data=22.0 xdata=0 code=364
+创建 HEX 文件 "595级联" ...
+"595级联" - 0 个错误, 0 个警告。
