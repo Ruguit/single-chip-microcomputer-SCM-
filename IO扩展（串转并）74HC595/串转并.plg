@@ -1,0 +1,22 @@
+<html>
+<body>
+<pre>
+<h1>礦ision3 Build Log</h1>
+<h2>Project:</h2>
+D:\单片机\CODE\IO扩展（串转并）74HC595\串转并.uv2
+Project File Date:  11/16/2022
+
+<h2>Output:</h2>
+编译 Text1.c ...
+Text1.c - 0 个错误, 0 个警告。
+编译 Text1.c ...
+TEXT1.C(31): 错误 C202: 'SECLK': undefined identifier
+TEXT1.C(33): 错误 C202: 'SECLK': undefined identifier
+Text1.c - 2 个错误, 0 个警告。
+编译 Text1.c ...
+Text1.c - 0 个错误, 0 个警告。
+创建目标 '目标 1'
+连接 ...
+Program Size: data=17.0 xdata=0 code=242
+创建 HEX 文件 "串转并" ...
+"串转并" - 0 个错误, 0 个警告。
