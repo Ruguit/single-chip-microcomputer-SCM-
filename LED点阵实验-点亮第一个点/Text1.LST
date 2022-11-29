@@ -1,0 +1,72 @@
+C51 COMPILER V8.06   TEXT1                                                                 11/28/2022 21:19:22 PAGE 1   
+
+
+C51 COMPILER V8.06, COMPILATION OF MODULE TEXT1
+OBJECT MODULE PLACED IN Text1.OBJ
+COMPILER INVOKED BY: D:\单片机\C51\BIN\C51.EXE Text1.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          
+   3          typedef unsigned char u8;
+   4          typedef unsigned int u16;
+   5          
+   6          //通过74HC595模块控制LED点阵第一个点
+   7           
+   8          //控制管脚  并将硬件的控制管脚 OE短接到GND 
+   9          sbit SRCLK =P3^6;//移位寄存器 
+  10          sbit rCLK =P3^5;//存储寄存器 
+  11          sbit SER =P3^4;//串行输入管脚 
+  12          
+  13          //定义控制列的端口
+  14          #define LEDDZ_COL_PORT P0
+  15          
+  16          //SER需要输入的数据
+  17          u8 ghc595_buf[1] ={0x80}; 
+  18            
+  19          /*
+  20          延时函数 ten_us =1000 大概延时10微秒 
+  21          */
+  22          void delay_us(u16 ten_us){
+  23   1              while(ten_us--);
+  24   1      }
+  25          
+  26          void hc595_write_date(u8 dat){
+  27   1              u8 i=0;
+  28   1              for(i=0;i<8;i++){//从最低位开始识别 传输给最高位 所以要先将最高位位移到最低位 
+  29   2                      SER=dat>>7;
+  30   2                      dat<<=1;
+  31   2                      SRCLK=0;
+  32   2                      delay_us(1);
+  33   2                      SRCLK=1; 
+  34   2                      delay_us(1);
+  35   2              }
+  36   1              rCLK=0;
+  37   1              delay_us(1);
+  38   1              rCLK=1;
+  39   1      } 
+  40          
+  41          void main(){
+  42   1              while(1){
+  43   2                              hc595_write_date(ghc595_buf[0]);
+  44   2                              LEDDZ_COL_PORT=0x7f; 
+  45   2                              delay_us(50000);
+  46   2              }
+  47   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     73    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =      1    ----
+C51 COMPILER V8.06   TEXT1                                                                 11/28/2022 21:19:22 PAGE 2   
+
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
