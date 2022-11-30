@@ -1,0 +1,42 @@
+<html>
+<body>
+<pre>
+<h1>礦ision3 Build Log</h1>
+<h2>Project:</h2>
+D:\单片机\CODE\步进电机实验\main.uv2
+Project File Date:  11/29/2022
+
+<h2>Output:</h2>
+编译 Text3.c ...
+TEXT3.C(53): 警告 C206: 'delay_10us': missing function-prototype
+TEXT3.C(53): 错误 C267: 'delay_10us': requires ANSI-style prototype
+TEXT3.C(100): 错误 C231: 'delay_10us': redefinition
+TEXT3.C(102): 错误 C231: 'delay_10us': redefinition
+Text3.c - 3 个错误, 1 个警告。
+编译 Text3.c ...
+TEXT3.C(53): 警告 C206: 'delay_10us': missing function-prototype
+TEXT3.C(53): 错误 C267: 'delay_10us': requires ANSI-style prototype
+TEXT3.C(106): 错误 C231: 'delay_10us': redefinition
+TEXT3.C(108): 错误 C231: 'delay_10us': redefinition
+Text3.c - 3 个错误, 1 个警告。
+编译 Text3.c ...
+Text3.c - 0 个错误, 0 个警告。
+创建目标 '目标 1'
+连接 ...
+Program Size: data=11.0 xdata=0 code=446
+创建 HEX 文件 "main" ...
+"main" - 0 个错误, 0 个警告。
+编译 Text3.c ...
+Text3.c - 0 个错误, 0 个警告。
+创建目标 '目标 1'
+连接 ...
+Program Size: data=14.0 xdata=0 code=659
+创建 HEX 文件 "main" ...
+"main" - 0 个错误, 0 个警告。
+编译 Text3.c ...
+Text3.c - 0 个错误, 0 个警告。
+创建目标 '目标 1'
+连接 ...
+Program Size: data=11.0 xdata=0 code=446
+创建 HEX 文件 "main" ...
+"main" - 0 个错误, 0 个警告。
