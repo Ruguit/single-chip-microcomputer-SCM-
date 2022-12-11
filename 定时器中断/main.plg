@@ -1,0 +1,28 @@
+<html>
+<body>
+<pre>
+<h1>礦ision3 Build Log</h1>
+<h2>Project:</h2>
+D:\单片机\CODE\定时器中断\main.uv2
+Project File Date:  12/11/2022
+
+<h2>Output:</h2>
+编译 Text1.c ...
+Text1.c - 0 个错误, 0 个警告。
+创建目标 '目标 1'
+连接 ...
+*** WARNING L10: CANNOT DETERMINE ROOT SEGMENT
+Program Size: data=0.0 xdata=0 code=0
+"main" - 0 个错误, 1 个警告。
+编译 Text1.c ...
+TEXT1.C(35): 警告 C206: 'ime0_init': missing function-prototype
+Text1.c - 0 个错误, 1 个警告。
+编译 Text1.c ...
+Text1.c - 0 个错误, 0 个警告。
+创建目标 '目标 1'
+连接 ...
+*** WARNING L16: UNCALLED SEGMENT, IGNORED FOR OVERLAY PROCESS
+    SEGMENT: ?PR?_DELAY?TEXT1
+Program Size: data=11.0 xdata=0 code=222
+创建 HEX 文件 "main" ...
+"main" - 0 个错误, 1 个警告。
