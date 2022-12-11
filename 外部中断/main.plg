@@ -1,0 +1,19 @@
+<html>
+<body>
+<pre>
+<h1>礦ision3 Build Log</h1>
+<h2>Project:</h2>
+D:\单片机\CODE\外部中断\main.uv2
+Project File Date:  12/11/2022
+
+<h2>Output:</h2>
+编译 Text1.c ...
+TEXT1.C(20): 错误 C202: 'EXO': undefined identifier
+Text1.c - 1 个错误, 0 个警告。
+编译 Text1.c ...
+Text1.c - 0 个错误, 0 个警告。
+创建目标 '目标 1'
+连接 ...
+Program Size: data=9.0 xdata=0 code=87
+创建 HEX 文件 "main" ...
+"main" - 0 个错误, 0 个警告。

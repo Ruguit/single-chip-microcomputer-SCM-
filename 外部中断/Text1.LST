@@ -1,0 +1,59 @@
+C51 COMPILER V8.06   TEXT1                                                                 12/11/2022 15:37:19 PAGE 1   
+
+
+C51 COMPILER V8.06, COMPILATION OF MODULE TEXT1
+OBJECT MODULE PLACED IN Text1.OBJ
+COMPILER INVOKED BY: D:\单片机\C51\BIN\C51.EXE Text1.c BROWSE DEBUG OBJECTEXTEND
+
+line level    source
+
+   1          #include<reg52.h>
+   2          
+   3          /*
+   4          使用K3键模拟外部中断触发， K3键引脚P32默认为1 
+   5          当按下K3键时，K3键接通GND 故 引脚P32由1转变为0 实现下跳沿触发 
+   6          */
+   7          typedef unsigned char u8;
+   8          typedef unsigned int u16;
+   9          
+  10          sbit key3=P3^2;
+  11          #define LED_PORT P2
+  12          
+  13          void delay (u16 ten){
+  14   1              while(ten--);
+  15   1      } 
+  16          
+  17          //外部中断0触发函数 
+  18          void exti0_init(void){
+  19   1              IT0=1;//下降沿触发
+  20   1              EX0=1;
+  21   1              EA=1; 
+  22   1      }
+  23          
+  24          void exti0() interrupt 0 {
+  25   1              delay(1000);
+  26   1              if(key3==0){
+  27   2                      LED_PORT=!LED_PORT;
+  28   2              }
+  29   1      }
+  30          
+  31          void main(){
+  32   1              exti0_init();
+  33   1              while(1){
+  34   2                      
+  35   2              }
+  36   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     69    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
